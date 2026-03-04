@@ -1,0 +1,68 @@
+# =========================
+# Python & Environments
+# =========================
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+conda_env/
+.conda/
+
+# =========================
+# OS & IDE Settings
+# =========================
+.DS_Store
+Thumbs.db
+.ipynb_checkpoints/
+.vscode/
+.idea/
+
+# =========================
+# Model Weights & Binaries
+# =========================
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+checkpoints/
+weights/
+pretrained_models/
+
+# =========================
+# Logs & Experiment Tracking
+# =========================
+logs/
+*.log
+# TensorBoard / WandB
+runs/
+tb_logs/
+wandb/
+
+# =========================
+# Data & Outputs
+# =========================
+data/
+datasets/
+output/
+results/
+samples/
+tmp_*/
+*.tmp
+
+# =========================
+# Secrets & Security
+# =========================
+.env
+.huggingface/
+
+# =========================
+# Python Packaging
+# =========================
+build/
+dist/
+*.egg-info/
