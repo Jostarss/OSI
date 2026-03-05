@@ -6,7 +6,7 @@
 <a href="https://huggingface.co/VIPL-GENUN/OSI"><img src="https://img.shields.io/badge/Model-3A98B9?label=%F0%9F%A4%97&labelColor=FFFDD0" style="height: 28px" /></a>
 
 > **[OSI: One-step Inversion Excels in Extracting Diffusion Watermarks](https://arxiv.org/abs/2602.09494)** \
-> [Yuwei Chen](https://scholar.google.com/citations?view_op=list_works&hl=zh-CN&hl=zh-CN&user=Q302tJ8AAAAJ)<sup>1,2</sup>, [Zhenliang He](https://lynnho.github.io)<sup>1,2</sup>, [Jia Tang](https://Jostarss.github.io)<sup>1,3</sup>, [Meina Kan](https://scholar.google.com/citations?hl=zh-CN&user=4AKCKKEAAAAJ)<sup>1,2</sup>, [Shiguang Shan](https://scholar.google.com/citations?user=Vkzd7MIAAAAJ)<sup>1,2</sup> \
+> [Yuwei Chen](https://scholar.google.com/citations?view_op=list_works&hl=zh-CN&hl=zh-CN&user=Q302tJ8AAAAJ)<sup>1,2</sup>, [Zhenliang He](https://lynnho.github.io)<sup>1,2✉</sup>, [Jia Tang](https://Jostarss.github.io)<sup>1,3</sup>, [Meina Kan](https://scholar.google.com/citations?hl=zh-CN&user=4AKCKKEAAAAJ)<sup>1,2</sup>, [Shiguang Shan](https://scholar.google.com/citations?user=Vkzd7MIAAAAJ)<sup>1,2</sup> \
 > <sup>1</sup>State Key Laboratory of AI Safety, Institute of Computing Technology, CAS, China \
 > <sup>2</sup>University of Chinese Academy of Sciences (CAS), China \
 > <sup>3</sup>School of Information Science and Technology, ShanghaiTech University, China
