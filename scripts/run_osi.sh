@@ -1,9 +1,9 @@
 MODEL_PATH="path/to/stable_diffusion_model/"
 DATASET_PATH="path/to/dataset/"
-UNET_PATH="path/to/osi_unet/"
-ENCODER_PATH="path/to/osi_encoder/"
+UNET_PATH="path/to/osi_unet.pth"
+ENCODER_PATH="path/to/osi_encoder.pth"
 
-python run_osi.py \
+python run_osi_sd21.py \
     --num 1000 \
     --image_length 512 \
     --guidance_scale 7.5 \
@@ -18,7 +18,7 @@ python run_osi.py \
     --encoder_path ${ENCODER_PATH} \
     --distortion_name Identity
 
-python run_osi.py \
+python run_osi_sd21.py \
     --num 1000 \
     --image_length 512 \
     --guidance_scale 7.5 \
@@ -34,7 +34,7 @@ python run_osi.py \
     --distortion_name RandomCrop \
     --random_crop_ratio 0.6
 
-python run_osi.py \
+python run_osi_sd21.py \
     --num 1000 \
     --image_length 512 \
     --guidance_scale 7.5 \
@@ -50,7 +50,7 @@ python run_osi.py \
     --distortion_name RandomDrop \
     --random_drop_ratio 0.8
 
-python run_osi.py \
+python run_osi_sd21.py \
     --num 1000 \
     --image_length 512 \
     --guidance_scale 7.5 \
@@ -66,7 +66,7 @@ python run_osi.py \
     --distortion_name Color_Jitter \
     --brightness_factor 6
 
-python run_osi.py \
+python run_osi_sd21.py \
     --num 1000 \
     --image_length 512 \
     --guidance_scale 7.5 \
@@ -82,7 +82,7 @@ python run_osi.py \
     --distortion_name Jpeg \
     --jpeg_ratio 25
 
-python run_osi.py \
+python run_osi_sd21.py \
     --num 1000 \
     --image_length 512 \
     --guidance_scale 7.5 \
@@ -98,7 +98,7 @@ python run_osi.py \
     --distortion_name GauBlur \
     --gaussian_blur_r 4
 
-python run_osi.py \
+python run_osi_sd21.py \
     --num 1000 \
     --image_length 512 \
     --guidance_scale 7.5 \
@@ -114,7 +114,7 @@ python run_osi.py \
     --distortion_name GauNoise \
     --gaussian_std 0.05
 
-python run_osi.py \
+python run_osi_sd21.py \
     --num 1000 \
     --image_length 512 \
     --guidance_scale 7.5 \
@@ -130,7 +130,7 @@ python run_osi.py \
     --distortion_name MedBlur \
     --median_blur_k 7
 
-python run_osi.py \
+python run_osi_sd21.py \
     --num 1000 \
     --image_length 512 \
     --guidance_scale 7.5 \
@@ -146,7 +146,7 @@ python run_osi.py \
     --distortion_name SPNoise \
     --sp_prob 0.05
 
-python run_osi.py \
+python run_osi_sd21.py \
     --num 1000 \
     --image_length 512 \
     --guidance_scale 7.5 \

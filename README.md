@@ -1,38 +1,73 @@
-# OSI: One-step Inversion Excels in Extracting Diffusion Watermarks
+<h1 align="center"> 
+    <a href="https://arxiv.org/abs/2602.09494">OSI</a>
+</h1>
 
 <a href="https://arxiv.org/abs/2602.09494"><img src="https://img.shields.io/badge/arXiv-3A98B9?label=%F0%9F%93%9D&labelColor=FFFDD0" style="height: 28px" /></a>
+<a href="https://huggingface.co/VIPL-GENUN/OSI"><img src="https://img.shields.io/badge/Model-3A98B9?label=%F0%9F%A4%97&labelColor=FFFDD0" style="height: 28px" /></a>
+
+> **[OSI: One-step Inversion Excels in Extracting Diffusion Watermarks](https://arxiv.org/abs/2602.09494)** \
+> [Yuwei Chen](https://scholar.google.com/citations?view_op=list_works&hl=zh-CN&hl=zh-CN&user=Q302tJ8AAAAJ)<sup>1,2</sup>, [Zhenliang He](https://lynnho.github.io)<sup>1,2</sup>, [Jia Tang](https://Jostarss.github.io)<sup>1,3</sup>, [Meina Kan](https://scholar.google.com/citations?hl=zh-CN&user=4AKCKKEAAAAJ)<sup>1,2</sup>, [Shiguang Shan](https://scholar.google.com/citations?user=Vkzd7MIAAAAJ)<sup>1,2</sup> \
+> <sup>1</sup>State Key Laboratory of AI Safety, Institute of Computing Technology, CAS, China \
+> <sup>2</sup>University of Chinese Academy of Sciences (CAS), China \
+> <sup>3</sup>School of Information Science and Technology, ShanghaiTech University, China
+
+<p align="center">
+    <img src="./assets/overview.png" alt="base-conditions" style="width: 100%" />
+</p>
 
 
-Official implementation of One-step Inversion (OSI) — a fast and accurate method for extracting the initial noise sign from diffusion-generated images, with exceptional performance in Gaussian Shading style watermark extraction.
+We introduce OSI, a fast and accurate method for extracting the initial noise sign from diffusion-generated images, with exceptional performance in Gaussian Shading style watermark extraction.
 
 
-## 🛠️ Dependencies
+## 🛠️ Installation
 
-This code is based on `python 3.8.20` and the packages specified in `requirements.txt`.
+Clone this repo:
+
+```shell
+git clone https://github.com/VIPL-GENUN/OSI.git
+cd OSI
+```
 
 Create and activate a new conda environment:
-```bash
+```shell
 conda create -n osi python=3.8.20
 conda activate osi
 ```
 
 Install dependencies:
-```bash
+```shell
 pip install -r requirements.txt
+```
+
+
+## 🤖️ Download Models
+
+We have provided the OSI model for Stable Diffusion v2.1 on [HuggingFace](https://huggingface.co/VIPL-GENUN/OSI). Weights for other versions, including SD3.5 and SDXL, will be updated soon. You can download it using the following command:
+
+```shell
+huggingface-cli download VIPL-GENUN/OSI
 ```
 
 
 ## 🚗 Usage
 
-1. Prepare the Stable Diffusion weights and the trained OSI model weights, then update paths in the command/script:
+### 📦 Data & Model Preparation
+
+Prepare the pre-trained Stable Diffusion weights and the OSI model weights, then update paths in the command/script:
    - `--model_path`: Stable Diffusion checkpoint path
    - `--unet_path` / `--encoder_path`: OSI UNet / encoder checkpoints
-   - `--dataset_path`: text prompt dataset or local prompts path
+   - `--dataset_path`: Stable Diffusion Prompts or MS-COCO datasets path
 
-2. Run a single distortion example:
+### 🛠️ Workflow
+
+Our inference process `run_osi_sd21.py` starts by loading the Stable Diffusion Prompts dataset, the pre-trained Stable Diffusion (v2.1), and our OSI model (both UNet and Encoder). In each step, the system takes a prompt from the dataset to generate a watermarked image. This image is then put through an attack to test robustness. Finally, the OSI model processes the attacked image to predict the signs of the initial latent noise, from which the hidden watermark message is extracted.
+
+### 🚀 Quick Start
+
+Run a single distortion example:
 
 ```bash
-python run_osi.py \
+python run_osi_sd21.py \
   --num 1000 \
   --image_length 512 \
   --guidance_scale 7.5 \
@@ -45,14 +80,17 @@ python run_osi.py \
   --model_path <stable_diffusion_model_path> \
   --unet_path <osi_unet_ckpt> \
   --encoder_path <osi_encoder_ckpt> \
-  --distortion_name <distortion_name>
+  --distortion_name Jpeg \
+  --jpeg_ratio 25
 ```
 
-3. Run all distortion presets in one go:
+Run all distortion presets in one go:
 
 ```bash
 bash scripts/run_osi.sh
 ```
+
+**Note on Scripts**: For more examples involving different adversarial attacks or clean (no-attack) evaluations, please refer to the configurations in `scripts/run_osi.sh`.
 
 
 ## 📚 Acknowledgements
